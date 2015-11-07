@@ -1,5 +1,15 @@
 <div class='row text-center'>
-	<h1>What up world?</h1>
-
-	<p>{{ test }}</p>
+    <div class="col-sm-4 col-sm-offset-4">
+        <h1>Todo list</h1>
+        <ul class="list-group">
+            <li ng-repeat="todo in vm.todos" ng-class="{completed: todo.is_completed}" class="list-group-item">
+                <input type="checkbox" ng-model="todo.is_completed" ng-checked="todo.is_completed" ng-change="vm.toggleCompleted(todo)">
+                {{ todo.title }}
+                <span class="badge" ng-click="vm.deleteTodo(todo.id)">&times;</span>
+            </li>
+        </ul>
+    </div>
+    <br/>
+    <button ui-sref="add-todo" class="btn btn-primary btn-lg">Add Todo</button>
 </div>
+

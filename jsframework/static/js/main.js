@@ -1,19 +1,4 @@
-
-var app = angular.module('drf-angular', [
-	'ui.router'
-]);
-
-app.config(function($stateProvider, $urlRouterProvider){
-	$stateProvider
-		.state('home', {
-			url: '/',
-			templateUrl: '/static/templates/home.html',
-			controller: 'MainCtrl'
-		});
-
-	$urlRouterProvider.otherwise('/');
-});
-
-app.controller('MainCtrl', function($scope){
-	$scope.test = "I come from the angularz";
-});
+(function(){
+	angular.module('drf-angular', ['routing', 'controllers', 'services'])
+        .constant('BASE_URL', 'http://localhost:8000/api/v1/todos/');
+})();
